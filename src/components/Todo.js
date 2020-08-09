@@ -6,7 +6,7 @@ import { toggleTodo } from "../redux/actions";
 const Todo = ({ todo, toggleTodo }) => (
   <li onClick={() => toggleTodo(todo.id)}>
     {/* {todo} */}
-    {todo && todo.completed ? "オワオワリ" : "まだまだだね"} {todo.content}
+    {todo && todo.completed ? "オワオワリ" : "未完"} {todo.content}
   </li>
 );
 

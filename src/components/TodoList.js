@@ -5,7 +5,7 @@ import Todo from "./Todo";
 import { getTodos } from "../redux/selectors";
 
 const TodoList = ({ allTodos }) => {
-  console.log(allTodos);
+  //   console.log(allTodos);
   return (
     <ul>
       {allTodos && allTodos.length

@@ -4,7 +4,7 @@ export const getTodoList = (store) =>
   getTodoState(store) ? getTodoState(store).allIds : [];
 
 export const getTodoById = (store, id) => {
-  console.log(getTodoState(store), id);
+  //   console.log(getTodoState(store), id);
   return getTodoState(store) ? { ...getTodoState(store).byIds[id], id } : {};
 };
 

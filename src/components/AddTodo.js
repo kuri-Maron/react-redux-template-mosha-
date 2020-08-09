@@ -1,33 +1,59 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+// import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions";
 
-class AddTodo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { input: "" };
-  }
+const AddTodo = () => {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
 
-  updateInput = (input) => {
-    this.setState({ input });
+  const updateInput = (input2) => {
+    console.log(input, input2); // TODO: どっちが呼ばれる？
+    setInput(input2);
   };
 
-  handleAddTodo = () => {
-    this.props.addTodo(this.state.input);
-    this.setState({ input: "" });
+  const handleAddTodo = () => {
+    console.log("check!");
+    dispatch(addTodo(input));
+    setInput("");
   };
 
-  render() {
-    return (
-      <div>
-        <input
-          onChange={(e) => this.updateInput(e.target.value)}
-          value={this.state.input}
-        />
-        <button onClick={this.handleAddTodo}>Add Todo</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <input onChange={(e) => updateInput(e.target.value)} value={input} />
+      <button onClick={handleAddTodo}>Add Todo</button>
+    </div>
+  );
+};
 
-export default connect(null, { addTodo })(AddTodo);
+export default AddTodo;
+
+// class AddTodo extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { input: "" };
+//   }
+
+//   updateInput = (input) => {
+//     this.setState({ input });
+//   };
+
+//   handleAddTodo = () => {
+//     this.props.addTodo(this.state.input);
+//     this.setState({ input: "" });
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <input
+//           onChange={(e) => this.updateInput(e.target.value)}
+//           value={this.state.input}
+//         />
+//         <button onClick={this.handleAddTodo}>Add Todo</button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default connect(null, { addTodo })(AddTodo);
