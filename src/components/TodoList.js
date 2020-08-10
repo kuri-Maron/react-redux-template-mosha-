@@ -1,11 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import Todo from "./Todo";
 
 import { getTodos } from "../redux/selectors";
 
-const TodoList = ({ allTodos }) => {
-  //   console.log(allTodos);
+const TodoList = () => {
+  const allTodos = useSelector((state) => getTodos(state));
   return (
     <ul>
       {allTodos && allTodos.length
@@ -17,9 +17,4 @@ const TodoList = ({ allTodos }) => {
   );
 };
 
-const mapStateProps = (state) => {
-  const allTodos = getTodos(state);
-  return { allTodos };
-};
-
-export default connect(mapStateProps)(TodoList);
+export default TodoList;
