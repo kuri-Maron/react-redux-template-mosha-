@@ -1,10 +1,10 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { ADD_TODO, TOGGLE_TODO, FETCH_TODOLIST } from "../actionTypes";
 
 const initialState = {
   allIds: [],
   byIds: {},
 };
-
+console.log("initialState", initialState);
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
@@ -33,6 +33,21 @@ export default function (state = initialState, action) {
             completed: !state.byIds[id].completed,
           },
         },
+      };
+    }
+    case FETCH_TODOLIST: {
+      const { todoListArray } = action.payload;
+      let byIds = {};
+      return {
+        ...state,
+        allIds: todoListArray.map((todo) => {
+          byIds[todo.id] = {
+            content: todo.content,
+            completed: todo.completed,
+          };
+          return todo.id;
+        }),
+        byIds: byIds,
       };
     }
     default:
