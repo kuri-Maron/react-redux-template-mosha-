@@ -14,10 +14,26 @@ const AddTodo = () => {
     [setInput]
   );
 
-  const handleAddTodo = useCallback(() => {
+  const handleAddTodo = useCallback(async () => {
     console.log("check!");
-    dispatch(addTodo(input));
-    setInput("");
+    // call fetch_api function
+    await fetch(
+      "https://q710ycvg7i.execute-api.ap-northeast-1.amazonaws.com/dev/api",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: input,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(addTodo(input));
+        setInput("");
+      });
   }, [dispatch, input]);
 
   return (

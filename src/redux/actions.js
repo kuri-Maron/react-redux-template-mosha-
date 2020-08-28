@@ -17,9 +17,13 @@ export const toggleTodo = (id) => ({
   payload: { id },
 });
 
-export const fetchTodoList = (todoList) => ({
-  type: FETCH_TODOLIST,
-  payload: {
-    todoListArray: todoList,
-  },
-});
+export const fetchTodoList = (todoList) => {
+  nextTodoId = todoList.length;
+  console.log(nextTodoId);
+  return {
+    type: FETCH_TODOLIST,
+    payload: {
+      todoListArray: todoList,
+    },
+  };
+};

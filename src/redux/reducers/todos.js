@@ -43,7 +43,7 @@ export default function (state = initialState, action) {
         allIds: todoListArray.map((todo) => {
           byIds[todo.id] = {
             content: todo.content,
-            completed: todo.completed,
+            completed: (todo.completed = 0 ? true : false),
           };
           return todo.id;
         }),

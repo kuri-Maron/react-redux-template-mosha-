@@ -36,7 +36,7 @@ const TodoList = () => {
       unmouted = true;
     };
     return cleanup;
-  }, []);
+  }, [dispatch]);
 
   // const allTodos = useSelector((state) => getTodos(state));
   const allTodos = useSelector((state) => {
