@@ -4,17 +4,17 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions";
 
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 // import teal from "@material-ui/core/colors/teal";
 
-const useStyles = makeStyles({
-  add_button: {
-    color: "green",
-  },
-});
+// const useStyles = makeStyles({
+//   add_button: {
+//     color: "green",
+//   },
+// });
 
 const AddTodo = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
