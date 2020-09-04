@@ -50,12 +50,10 @@ const AddTodo = () => {
   return (
     <div>
       <input onChange={(e) => updateInput(e.target.value)} value={input} />
-      {/* <button onClick={handleAddTodo}>Add Todo</button> */}
       <Button
         variant="outlined"
         size="small"
         color="secondary"
-        // className={classes.add_button}
         onClick={handleAddTodo}
       >
         Add Todo

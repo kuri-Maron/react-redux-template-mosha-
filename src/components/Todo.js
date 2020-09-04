@@ -19,9 +19,6 @@ const Todo = ({ todo }) => {
   const dispatch = useDispatch();
   return (
     <li>
-      {/* <input type="checkbox" onClick={() => dispatch(toggleTodo(todo.id))} />
-      {todo && todo.completed ? "オワオワリ" : "未完"} {todo.content} */}
-
       <FormControlLabel
         control={<Checkbox />}
         label={todo.content}
