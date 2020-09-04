@@ -26,7 +26,8 @@ const TodoList = () => {
         .then((data) => {
           console.log(data);
           dispatch(fetchTodoList(data));
-        });
+        })
+        .catch((error) => console.log(error));
       if (!unmouted) {
         // storeに格納する関数の実行
       }
@@ -45,7 +46,7 @@ const TodoList = () => {
   });
   console.log(allTodos);
   return (
-    <ul>
+    <ul style={{ listStyle: "none" }}>
       {allTodos && allTodos.length
         ? allTodos.map((todo, index) => {
             return <Todo key={`todo-${todo.id}`} todo={todo} />;

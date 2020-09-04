@@ -3,7 +3,18 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions";
 
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+// import teal from "@material-ui/core/colors/teal";
+
+const useStyles = makeStyles({
+  add_button: {
+    color: "green",
+  },
+});
+
 const AddTodo = () => {
+  const classes = useStyles();
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
@@ -39,7 +50,16 @@ const AddTodo = () => {
   return (
     <div>
       <input onChange={(e) => updateInput(e.target.value)} value={input} />
-      <button onClick={handleAddTodo}>Add Todo</button>
+      {/* <button onClick={handleAddTodo}>Add Todo</button> */}
+      <Button
+        variant="outlined"
+        size="small"
+        color="secondary"
+        // className={classes.add_button}
+        onClick={handleAddTodo}
+      >
+        Add Todo
+      </Button>
     </div>
   );
 };
