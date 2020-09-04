@@ -5,7 +5,6 @@ import "./App.css";
 
 function TodoApp() {
   return (
-    // <div className="App">
     <div>
       <h1>Todo List</h1>
       <AddTodo />
